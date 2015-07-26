@@ -1,0 +1,21 @@
+<h1>Listing api_jobs</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @api_jobs.each do |api_job| %>
+  <tr>
+    <td><%= link_to 'Show', api_job %></td>
+    <td><%= link_to 'Edit', edit_api_job_path(api_job) %></td>
+    <td><%= link_to 'Destroy', api_job, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Job', new_api_job_path %>

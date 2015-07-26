@@ -1,0 +1,14 @@
+{{define "content"}}
+<div class="container">
+    <div class="row">
+        <div class="span5">
+            <h2>Sign in</h2>
+            <form action="/user/sign_in" class="form-vertical" method="post">
+                <input type="text" name="user[email]" placeholder="Email" class="input-block-level">
+                <input type="password" name="user[password]" placeholder="Password" class="input-block-level">
+                <input type="submit" name="submit" value="Sign in" class="btn btn-success btn-block btn-large">
+            </form>
+        </div>
+    </div>
+</div>
+{{end}}

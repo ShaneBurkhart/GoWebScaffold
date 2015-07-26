@@ -1,0 +1,44 @@
+{{define "content"}}
+<div class="section">
+	<div class="container">
+		<h2>Edit User</h2>
+        <form action="/admin/users/{{.User.Id}}/delete" method="post">
+            <button class="">Delete</button>
+        </form>
+        <br>
+        <br>
+		<div class="row">
+			<div class="span4">
+                {{print .User.Errors}}
+                <form action="/admin/users/{{.User.Id}}/edit" class="form-vertical" method="post">
+                    <div class="controls">
+                        <label for="user_first_name">First name</label>
+                        <input type="text" name="user[first_name]" placeholder="First" value="{{.User.FirstName}}">
+                    </div>
+                    <div class="controls">
+                        <label for="user_first_name">Last name</label>
+                        <input type="text" name="user[last_name]" placeholder="Last" value="{{.User.LastName}}">
+                    </div>
+                    <div class="controls">
+                        <label for="user_first_name">Company</label>
+                        <input type="text" name="user[company]" placeholder="Company" value="{{.User.Company}}">
+                    </div>
+                    <div class="controls">
+                        <label for="user_first_name">Email</label>
+                        <input type="text" name="user[email]" placeholder="Email" value="{{.User.Email}}">
+                    </div>
+                    <div class="controls">
+                        <label for="user_first_name">Type</label>
+                        <select name="user[role]">
+                            <option value="viewer" {{if .User.IsViewer}}selected{{end}}>Viewer</option>
+                            <option value="manager" {{if .User.IsManager}}selected{{end}}>Manager</option>
+                            <option value="admin" {{if .User.IsAdmin}}selected{{end}}>Admin</option>
+                        </select>
+                    </div>
+                    <input type="submit" name="submit" value="Update account" class="btn button button-blue">
+                </form>
+			</div>
+		</div>
+	</div>
+</div>
+{{end}}

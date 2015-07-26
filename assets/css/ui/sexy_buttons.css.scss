@@ -1,0 +1,113 @@
+/* Text */
+$darkText: #676767;
+/* Color Variable */
+$white: #fff;
+$black: #000;
+$grey: #f5f5f5;
+$greyAccent: #f0f0f0;
+$red: #e91616;
+$redHover: #dc1818;
+$redHoverAccent: #bc2020;
+$redAccent: #cf1d1d;
+$green: #50d000;
+$greenAccent: #4dc202;
+$greenHover: #4cc602;
+$greenHoverAccent: #48b703;
+$blue: #00baec;
+$blueAccent: #07b0df;
+$blueHover: #01b2e3;
+$blueHoverAccent: #079fcf;
+$orange: #ff6c0b;
+$orangeAccent: #ee5e00;
+$orangeHover: #f56201;
+$orangeHoverAccent: #db5501;
+$purple: #d400d4;
+$purpleAccent: #c002c0;
+$purpleHover: #be00be;
+$purpleHoverAccent: #ad05ad;
+
+/* Mixins */
+@mixin button-hover{
+
+}
+
+@mixin button-gradient($color: $grey, $accentColor: $greyAccent){
+	@if $color == $grey{
+		color: $darkText;
+	} @else{
+		color: $white;
+	}
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, $color), color-stop(1, $accentColor));
+  background:-moz-linear-gradient(top, $color 5%, $accentColor 100%);
+  background:-webkit-linear-gradient(top, $color 5%, $accentColor 100%);
+  background:-o-linear-gradient(top, $color 5%, $accentColor 100%);
+  background:-ms-linear-gradient(top, $color 5%, $accentColor 100%);
+  background:linear-gradient(to bottom, $color 5%, $accentColor 100%);
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='$color', endColorstr='#f89306',GradientType=0);
+  background-color:$color;
+}
+
+@mixin button-rounded{
+	-moz-border-radius:4px;
+  -webkit-border-radius:4px;
+  border-radius:4px;
+}
+
+.button {
+  border-radius: 0;
+	border: 1px solid #ccc;
+  text-shadow:0px 1px 0px #acacac;
+  display:inline-block;
+  text-align: center;
+  font-family:arial, sans-serif;
+  padding:5px 22px;
+  text-decoration:none;
+  cursor:pointer;
+
+  &:hover {
+  	border: 1px solid #aaa;
+  	color: $black;
+    text-decoration: none;
+  }
+
+  &.button-inline{
+    display: inline;
+  }
+
+	/* Colors */
+  @include button-gradient; /*Default*/
+  &.button-red {
+  	@include button-gradient($red, $redAccent);
+  	&:hover{@include button-gradient($redHover, $redHoverAccent);}
+	}
+  &.button-green {
+  	@include button-gradient($green, $greenAccent);
+	  &:hover{@include button-gradient($greenHover, $greenHoverAccent);}
+	}
+  &.button-blue {
+  	@include button-gradient($blue, $blueAccent);
+  	&:hover{@include button-gradient($blueHover, $blueHoverAccent);}
+  }
+  &.button-orange {
+  	@include button-gradient($orange, $orangeAccent);
+  	&:hover{@include button-gradient($orangeHover, $orangeHoverAccent);}
+  }
+  &.button-purple {
+  	@include button-gradient($purple, $purpleAccent);
+  	&:hover{@include button-gradient($purpleHover, $purpleHoverAccent);}
+  }
+  /* Edges */
+  &.button-rounded {@include button-rounded;}
+	/* Padding */
+	&.button-tall {padding-top: 11px;padding-bottom: 11px;}
+	&.button-wide {padding-left: 30px;padding-right: 30px;}
+	/* Size */
+
+	/* Weight */
+	&.button-bold {font-weight: bold;}
+	/* Display */
+	&.button-block {display: block;}
+	/* Underline */
+	&.button-underline {text-decoration: underline;}
+	&.button-hover-underline {&:hover{text-decoration: underline;}}
+}

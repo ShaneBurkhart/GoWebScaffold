@@ -1,0 +1,23 @@
+<% content_for :title, "Edit User" %>
+<div class="section">
+	<div class="container">
+		<h2>Edit User</h2>
+                <%= link_to "Delete", user_path(@user), :data => { :confirm => "Are you sure?" }, :method => :delete, class: "btn" %>
+                <br>
+                <br>
+		<div class="row">
+			<div class="span4">
+				<%= simple_form_for(@user, url: user_path(@user), as: :user, :html => {:class => 'form-vertical' }) do |f| %>
+				  <%= f.error_notification %>
+				  <%= display_base_errors @user %>
+				  <%= f.input :first_name, :autofocus => true, :required => true %>
+				  <%= f.input :last_name, :required => true %>
+                                  <%= f.input :company, :required => true %>
+				  <%= f.input :email, :required => true %>
+				  <%= f.input :type, :required => true, as: :select, collection: ["Admin", "Manager", "Viewer"]%>
+				  <%= f.button :submit, 'Edit User', :class => 'button button-blue' %>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</div>

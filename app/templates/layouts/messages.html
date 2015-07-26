@@ -1,0 +1,11 @@
+{{define "messages"}}
+{{range .Flashes}}
+    <!--TODO Check if flash is error or success-->
+    <div class="alert alert-{{.Type}}">
+      <a class="close" data-dismiss="alert">&#215;</a>
+      <div>
+        {{.Message}}
+      </div>
+    </div>
+{{end}}
+{{end}}

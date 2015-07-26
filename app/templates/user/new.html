@@ -1,0 +1,24 @@
+{{define "content"}}
+<div class="container">
+    <div class="row">
+        <div class="span6">
+            {{print .User.Errors}}
+            <h2>Sign up</h2>
+            <form action="/user" class="form-vertical" method="post">
+                <div class="row-fluid">
+                    <div class="span6">
+                        <input type="text" name="user[first_name]" placeholder="First" value="{{.User.FirstName}}" class="input-block-level">
+                    </div>
+                    <div class="span6">
+                        <input type="text" name="user[last_name]" placeholder="Last" value="{{.User.LastName}}" class="input-block-level">
+                    </div>
+                </div>
+                <input type="text" name="user[company]" placeholder="Company" value="{{.User.Company}}" class="input-block-level">
+                <input type="text" name="user[email]" placeholder="Email" value="{{.User.Email}}" class="input-block-level">
+                <input type="password" name="user[password]" placeholder="Password" class="input-block-level">
+                <input type="submit" name="submit" value="Sign up" class="btn btn-primary btn-block btn-large">
+            </form>
+        </div>
+    </div>
+</div>
+{{end}}

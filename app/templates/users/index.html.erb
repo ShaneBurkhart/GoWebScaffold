@@ -1,0 +1,27 @@
+<h1>Hi Mom!</h1>
+<table class="table table-striped">
+  <tr>
+    <th><%= link_to "Type", users_path(s: "type", r: @s == "type" && @r == 'false') %></th>
+    <th><%= link_to "Name", users_path(s: "name", r: @s == "name" && @r == 'false') %></th>
+    <th><%= link_to "Email", users_path(s: "email", r: @s == "email" && @r == 'false') %></th>
+    <th><%= link_to "Company", users_path(s: "company", r: @s == "company" && @r == 'false') %></th>
+    <th><%= link_to "Created At", users_path(s: "created_at", r: @s == "created_at" && @r == 'false') %></th>
+    <th><%= link_to "Last Seen", users_path(s: "last_seen", r: @s == "last_seen" && @r == 'false') %></th>
+    <th></th>
+  </tr>
+  <% @users.each do |user| %>
+    <tr class="<%= "error" if user.expired %>" >
+      <td><%= user.type %></td>
+      <td><%= user.full_name %></td>
+      <td><%= user.email %></td>
+      <td><%= user.company %></td>
+      <td><%= distance_of_time_in_words(Time.now, user.created_at) %> ago</td>
+      <td><%= distance_of_time_in_words(Time.now, user.last_seen) %> ago</td>
+      <td>
+        <div class="pull-right">
+          <%= link_to "Edit", edit_user_path(user), class: "btn" %>
+        </div>
+      </td>
+    </tr>
+  <% end %>
+</table>

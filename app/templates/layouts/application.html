@@ -1,0 +1,38 @@
+{{define "base"}}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=1024">
+
+        <link href="http://plansource.io/assets/application-2e52c048c9a1c9ee7ccdc46ae810e8c7.css" media="all" rel="stylesheet" type="text/css">
+
+    </head>
+    <body>
+        <div id="main" role="main">
+            <!--TODO Browser error-->
+            <div class="header">
+                {{template "navigation" .}}
+            </div>
+
+            <div class="container">
+                 <div class="row">
+                    <div class="span12">
+                        {{template "messages" .}}
+                    </div>
+                </div>
+            </div>
+
+            {{template "content" .}}
+
+            <div id="push"></div>
+        </div>
+
+        <footer>
+            <div class="container">
+                <p class="muted credit">Created By <a href="https://github.com/ShaneBurkhart">Shane Burkhart</a> for <a href="http://vedesigngroup.com/">VE Design Group</a></p>
+            </div>
+        </footer>
+    </body>
+</html>
+{{end}}

@@ -1,0 +1,29 @@
+{{define "content"}}
+    <h1>Hi Mom!</h1>
+    <table class="table table-striped">
+        <tr>
+            <th><a href="/admin/users?c=role_id{{if eq .c "role_id"}}&o={{.n}}{{end}}">Type</a></th>
+            <th><a href="/admin/users?c=name{{if eq .c "name"}}&o={{.n}}{{end}}">Name</a></th>
+            <th><a href="/admin/users?c=email{{if eq .c "email"}}&o={{.n}}{{end}}">Email</a></th>
+            <th><a href="/admin/users?c=company{{if eq .c "company"}}&o={{.n}}{{end}}">Company</a></th>
+            <th><a href="/admin/users?c=created_at{{if eq .c "created_at"}}&o={{.n}}{{end}}">Created At</a></th>
+            <th><a href="/admin/users?c=last_seen{{if eq .c "last_seen"}}&o={{.n}}{{end}}">Last Seen</a></th>
+            <th></th>
+        </tr>
+        {{range .Users}}
+            <tr>
+                <td>{{Title .Role}}</td>
+                <td>{{.FirstName}} {{.LastName}}</td>
+                <td>{{.Email}}</td>
+                <td>{{.Company}}</td>
+                <td>{{HumanTime .CreatedAt}}</td>
+                <td>{{HumanTime .LastSeen}}</td>
+                <td>
+                    <div class="pull-right">
+                        <a href="/admin/users/{{.Id}}/edit" class="btn">Edit</a>
+                    </div>
+                </td>
+            </tr>
+        {{end}}
+    </table>
+{{end}}

@@ -1,0 +1,42 @@
+{{define "content"}}
+<div class="container">
+    <div class="row">
+        <div class="span6">
+            {{print .User.Errors}}
+            <h2>Sign up</h2>
+            <form action="/user/edit" class="form-vertical" method="post">
+                <div class="controls">
+                    <label for="user_first_name">First name</label>
+                    <input type="text" name="user[first_name]" placeholder="First" value="{{.User.FirstName}}">
+                </div>
+                <div class="controls">
+                    <label for="user_first_name">Last name</label>
+                    <input type="text" name="user[last_name]" placeholder="Last" value="{{.User.LastName}}">
+                </div>
+                <div class="controls">
+                    <label for="user_first_name">Company</label>
+                    <input type="text" name="user[company]" placeholder="Company" value="{{.User.Company}}">
+                </div>
+                <div class="controls">
+                    <label for="user_first_name">Email</label>
+                    <input type="text" name="user[email]" placeholder="Email" value="{{.User.Email}}">
+                </div>
+                <div class="controls">
+                    <label for="user_first_name">New Password (Leave blank if you don't want to change password)</label>
+                    <input type="password" name="user[new_password]" placeholder="Password">
+                </div>
+                <div class="controls">
+                    <label for="user_first_name">New Password Confirmation</label>
+                    <input type="password" name="user[new_password_confirmation]" placeholder="Password">
+                </div>
+                <div class="controls">
+                    <label for="user_first_name">Current Password</label>
+                    <input type="password" name="user[password]" placeholder="Current password">
+                    <p class="help-block">we need your current password to confirm your changes</p>
+                </div>
+                <input type="submit" name="submit" value="Update account" class="btn button button-blue">
+            </form>
+        </div>
+    </div>
+</div>
+{{end}}

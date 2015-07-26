@@ -1,0 +1,40 @@
+.box{
+	padding:15px;
+	box-shadow:3px 3px 10px #ccc;
+	background-color:white;
+	min-height:10px;
+	margin-bottom:10px;
+
+	&.box-inline{display:inline-block;}
+	&.box-border{border:1px solid #ddd;}
+	&.box-jumbo{
+		padding-top:40px;
+		padding-bottom:40px;
+		text-align: center;
+		h1 {
+			font-size: 4.2em;
+		}
+		p {
+			font-size:1.2em;
+			margin:20px 0;
+		}
+	}
+}
+
+.section{
+	padding-top:20px;
+	min-height:10px;
+	&.section-white{background-color:white;}
+}
+
+.jumbo{
+	padding:20px;
+	text-align: center;
+	h1 {
+		font-size: 4.2em;
+	}
+	p {
+		font-size:1.2em;
+		margin:20px 0;
+	}
+}

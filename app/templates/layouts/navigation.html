@@ -1,0 +1,48 @@
+{{define "navigation"}}
+<div class="navigation navigation-dark navigation-fixed">
+    <div class="container">
+        <ul class="pull-left">
+            <li class="{{if eq .Controller "mobile"}}active{{end}}">
+                <a href="/mobile">Mobile Apps</a>
+            </li>
+
+        </ul>
+        <ul class="pull-right">
+            <!--TODO Highlight button when on page-->
+            <!--TODO Check for admin-->
+            {{if .CurrentUser}}
+                {{if .CurrentUser.IsAdmin}}
+                    <li>
+                        <a href="/admin/users">Admin</a>
+                    </li>
+                {{end}}
+                <li>
+                    <a href="/user/edit">Edit Account</a>
+                </li>
+                <li>
+                    <form action="/user/sign_out" method="post">
+                        <button class="">Logout</button>
+                    </form>
+                </li>
+            {{else}}
+                <li>
+                    <a href="/user/sign_in">Sign up</a>
+                </li>
+                <li>
+                    <a href="/user/sign_in">Login</a>
+                </li>
+            {{end}}
+        </ul>
+    </div>
+</div>
+
+<div class="brand-container">
+    <div class="container">
+        <h3>
+            <a href="/" class="logo">
+                <img alt="Logo" src="http://plansource.io/assets/logo-7ef2da3fc77a0ce1b12f90852a9630d4.png">
+            </a>
+        </h3>
+    </div>
+</div>
+{{end}}

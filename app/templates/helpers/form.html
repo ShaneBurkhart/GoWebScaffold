@@ -1,0 +1,9 @@
+{{define "form_input"}}
+    {{.}}
+    <div class="control-group">
+        <div class="controls">
+            <label for="user_first_name">Last name</label>
+            <input type="text" name="user[last_name]" placeholder="Last" value="{{.User.LastName}}">
+        </div>
+    </div>
+{{end}}

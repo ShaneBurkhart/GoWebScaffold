@@ -1,0 +1,32 @@
+data:
+    image: debian:wheezy
+    volumes:
+        - /var/lib/postgresql/data
+    command: true
+
+web:
+    image: shaneburkhart/plansource
+    links:
+        - pg
+    volumes:
+        - ../..:/go/src/github.com/ShaneBurkhart/PlanSource
+    command: gin run
+
+pg:
+    image: postgres
+    environment:
+        - POSTGRES_USER=postgres
+        - POSTGRES_PASSWORD=postgres
+        - POSTGRES_DB=mydb
+    volumes_from:
+        - data
+
+nginx:
+    image: nginx
+    ports:
+        - "3000:80"
+    links:
+        - web
+    volumes:
+        - nginx.conf:/etc/nginx/nginx.conf
+        - ../..:/app

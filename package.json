@@ -1,0 +1,22 @@
+{
+  "name": "PlanSource",
+  "devDependencies": {
+    "browserify": "^9.0.3",
+    "del": "^1.1.1",
+    "gulp": "^3.8.11",
+    "gulp-browserify": "^0.5.1",
+    "gulp-react": "^3.0.1",
+    "react": "^0.13.1",
+    "reactify": "^1.1.0",
+    "vinyl-source-stream": "^1.1.0",
+    "watchify": "^2.6.2"
+  },
+  "dependencies": {
+    "events": "^1.0.2",
+    "flux": "^2.0.1",
+    "gulp": "^3.8.11",
+    "object-assign": "^2.0.0",
+    "superagent": "^1.1.0",
+    "page": "1.6.3"
+  }
+}
